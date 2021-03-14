@@ -50,7 +50,7 @@
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:5, minZoom:3
+            zoomControl:true, maxZoom:5, minZoom:2
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -60,7 +60,6 @@
             if (bounds_group.getLayers().length) {
                 map.fitBounds(bounds_group.getBounds());
             }
-            map.setMaxBounds(map.getBounds());
         }
         map.createPane('pane_ESRIGraydark_0');
         map.getPane('pane_ESRIGraydark_0').style.zIndex = 400;
@@ -68,7 +67,7 @@
             pane: 'pane_ESRIGraydark_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 3,
+            minZoom: 2,
             maxZoom: 5,
             minNativeZoom: 0,
             maxNativeZoom: 20
@@ -186,7 +185,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,0,42,1.0)',
-                interactive: false,
+                interactive: true,
             }
             }
             if (feature.properties['PARTIC'] >= 24.000000 && feature.properties['PARTIC'] <= 62.000000 ) {
@@ -202,7 +201,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,0,42,1.0)',
-                interactive: false,
+                interactive: true,
             }
             }
             if (feature.properties['PARTIC'] >= 62.000000 && feature.properties['PARTIC'] <= 210.000000 ) {
@@ -218,7 +217,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,0,42,1.0)',
-                interactive: false,
+                interactive: true,
             }
             }
             if (feature.properties['PARTIC'] >= 210.000000 && feature.properties['PARTIC'] <= 406.000000 ) {
@@ -234,7 +233,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,0,42,1.0)',
-                interactive: false,
+                interactive: true,
             }
             }
         }
@@ -243,7 +242,7 @@
         map.getPane('pane_Participantes_2').style['mix-blend-mode'] = 'normal';
         var layer_Participantes_2 = new L.geoJson(json_Participantes_2, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_Participantes_2',
             layerName: 'layer_Participantes_2',
             pane: 'pane_Participantes_2',
@@ -259,7 +258,7 @@
         bounds_group.addLayer(layer_Participantes_2);
         map.addLayer(layer_Participantes_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Participantes<br /><table><tr><td style="text-align: center;"><img src="legend/Participantes_2_1240.png" /></td><td>1 - 24</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_24621.png" /></td><td>24 - 62</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_622102.png" /></td><td>62 - 210</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_2104063.png" /></td><td>210 - 406</td></tr></table>': layer_Participantes_2,'<img src="legend/Paises_1.png" /> Paises': layer_Paises_1,"ESRI Gray (dark)": layer_ESRIGraydark_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Participantes<br /><table><tr><td style="text-align: center;"><img src="legend/Participantes_2_1240.png" /></td><td>1 - 24</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_24621.png" /></td><td>24 - 62</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_622102.png" /></td><td>62 - 210</td></tr><tr><td style="text-align: center;"><img src="legend/Participantes_2_2104063.png" /></td><td>210 - 406</td></tr></table>': layer_Participantes_2,'<img src="legend/Paises_1.png" /> Paises': layer_Paises_1,"ESRI Gray (dark)": layer_ESRIGraydark_0,}).addTo(map);
         setBounds();
         </script>
     </body>
